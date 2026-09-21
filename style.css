@@ -1,0 +1,369 @@
+/* ==========================================================================
+   CSS VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --bg-color: #050505;
+    --text-main: #f4f4f5;
+    --text-muted: #a1a1aa;
+    --accent: #ffffff;
+    --border: #27272a;
+    --font-heading: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1, h2, h3, h4, .logo, .num {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 3rem;
+    line-height: 1.1;
+}
+
+p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.text-center { text-align: center; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 4rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* ==========================================================================
+   LAYOUT UTILITIES
+   ========================================================================== */
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 8rem 0;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   01 HERO SECTION
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 12rem;
+}
+
+.headline {
+    font-size: clamp(3rem, 7.5vw, 7.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -1px;
+    margin-bottom: 4rem;
+    max-width: 100%;
+}
+
+.hero-meta {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   02 INTRODUCTION
+   ========================================================================== */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.intro-text p {
+    margin-bottom: 1.5rem;
+}
+
+.core-values {
+    list-style: none;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+}
+
+.core-values li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   03 CAPABILITIES (WHAT I DO)
+   ========================================================================== */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    border: 1px solid var(--border);
+    padding: 3rem 2rem;
+    transition: background 0.3s ease;
+}
+
+.card:hover {
+    background: #111;
+}
+
+.num {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   04 SELECTED WORK (CASE STUDIES)
+   ========================================================================== */
+.project-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 8rem;
+    align-items: center;
+}
+
+.project-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.project-info h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.tag {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.desc {
+    margin-bottom: 2rem;
+}
+
+.project-details {
+    list-style: none;
+    border-left: 1px solid var(--border);
+    padding-left: 1rem;
+}
+
+.project-details li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.project-image {
+    width: 100%;
+    background: #111; /* Placeholder color before image loads */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-image:hover .img-fluid {
+    transform: scale(1.02);
+}
+
+/* ==========================================================================
+   05 EXPERIMENTS & APPROACH
+   ========================================================================== */
+.tags-list {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    line-height: 2;
+    color: var(--accent);
+    margin-top: 2rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+}
+
+.process-steps p {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 1rem;
+}
+
+.process-steps strong {
+    color: var(--accent);
+    font-family: var(--font-heading);
+    margin-right: 1rem;
+}
+
+.why-list {
+    list-style: none;
+}
+
+.why-list li {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+.why-list strong {
+    display: block;
+    color: var(--accent);
+    font-family: var(--font-heading);
+    margin-bottom: 0.2rem;
+}
+
+/* ==========================================================================
+   07 ABOUT, CONTACT & FOOTER
+   ========================================================================== */
+.about-text {
+    max-width: 800px;
+    font-size: 1.3rem;
+}
+
+.contact-box {
+    margin-top: 6rem;
+    padding: 6rem 2rem;
+    border: 1px solid var(--border);
+    background: #0a0a0a;
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    background: var(--accent);
+    color: var(--bg-color);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #d4d4d8;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+}
+
+.flex-footer {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+.section-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOBILE)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .intro-grid, .grid-2, .project-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .project-wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+    }
+    
+    section {
+        padding: 5rem 0;
+    }
+}
